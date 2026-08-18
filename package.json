@@ -1,0 +1,16 @@
+{
+  "name": "aaowasi369-portfolio",
+  "version": "17.0.0",
+  "private": true,
+  "description": "Adaptive zero-runtime-dependency governance portfolio \u2014 v17 container-responsive layouts, no-click interactions, live CISA KEV risk pulse, strict themes and portable static deployment",
+  "scripts": {
+    "check": "node scripts/preflight.mjs",
+    "build": "node scripts/build.mjs",
+    "postbuild": "node scripts/verify-output.mjs",
+    "start": "node scripts/serve-static.mjs"
+  },
+  "engines": {
+    "node": ">=20 <24"
+  },
+  "packageManager": "npm@10.9.2"
+}

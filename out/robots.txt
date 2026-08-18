@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aaowasi369v10.pages.dev/sitemap.xml
