@@ -16,6 +16,66 @@
   <meta content="website" property="og:type"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="17.0.0" name="portfolio-build"/>
+  <style>
+    /* Container styling for focus pill */
+    .focus-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 9999px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    /* Spinner viewport clipping box */
+    .focus-pill b {
+      display: inline-block;
+      height: 1.2em;
+      line-height: 1.2em;
+      overflow: hidden;
+      vertical-align: bottom;
+    }
+
+    /* Rolling text block */
+    .focus-pill b span {
+      display: flex;
+      flex-direction: column;
+      animation: spinWords 12s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    }
+
+    /* Individual word item styling */
+    .focus-pill b span i {
+      height: 1.2em;
+      line-height: 1.2em;
+      font-style: normal;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    /* Smooth step rotation sequence */
+    @keyframes spinWords {
+      0%, 20% {
+        transform: translateY(0);
+      }
+      25%, 45% {
+        transform: translateY(-1.2em);
+      }
+      50%, 70% {
+        transform: translateY(-2.4em);
+      }
+      75%, 95% {
+        transform: translateY(-3.6em);
+      }
+      100% {
+        transform: translateY(-4.8em);
+      }
+    }
+  </style>
  </head>
  <body class="v17">
   <a class="skip-link" href="#main">
@@ -154,83 +214,18 @@
    <div class="hero-grid hero-v9">
     <section class="hero-copy">
      <div class="focus-pill">
-      <i>
-      </i>
-      <style>
-/* Container styling to match your focus pill */
-.focus-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  border-radius: 9999px;
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  color: #334155;
-}
-
-/* Spinner viewport clipping box */
-.focus-pill b {
-  display: inline-block;
-  height: 1.2em;
-  line-height: 1.2em;
-  overflow: hidden;
-  vertical-align: bottom;
-}
-
-/* Rolling text block */
-.focus-pill b span {
-  display: flex;
-  flex-direction: column;
-  animation: spinWords 12s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
-}
-
-/* Individual word item styling */
-.focus-pill b span i {
-  height: 1.2em;
-  line-height: 1.2em;
-  font-style: normal;
-  font-weight: 700;
-  color: #0f172a;
-  white-space: nowrap;
-}
-
-/* Smooth step rotation sequence */
-@keyframes spinWords {
-  0%, 20% {
-    transform: translateY(0);
-  }
-  25%, 45% {
-    transform: translateY(-1.2em);
-  }
-  50%, 70% {
-    transform: translateY(-2.4em);
-  }
-  75%, 95% {
-    transform: translateY(-3.6em);
-  }
-  100% {
-    transform: translateY(-4.8em);
-  }
-}
-</style>
-
-<div class="focus-pill">
-  <i></i>
-  <span>Focused on</span>
-  <b data-focus-word="">
-    <span>
-      <i>Enterprise Assurance</i>
-      <i>AI risk operations</i>
-      <i>third party risk</i>
-      <i>evidence architecture</i>
-      <!-- Duplicate of first item for seamless loop reset -->
-      <i>Enterprise Assurance</i>
-    </span>
-  </b>
-</div>
+      <i></i>
+      <span>Focused on</span>
+      <b data-focus-word="">
+       <span>
+        <i>Enterprise Assurance</i>
+        <i>AI risk operations</i>
+        <i>third party risk</i>
+        <i>evidence architecture</i>
+        <i>Enterprise Assurance</i>
+       </span>
+      </b>
+     </div>
      <p class="eyebrow">
       Md. Abdullah Al Owasi · Technology Risk &amp; AI Governance
      </p>
