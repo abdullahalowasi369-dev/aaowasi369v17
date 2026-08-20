@@ -3098,3 +3098,46 @@
   </script>
  </body>
 </html>
+
+
+/* PREMIUM DESIGN INJECTION */
+:root{
+--lux-shadow:0 30px 80px rgba(15,23,42,.12);
+}
+.portfolio-snapshot,
+.value-card,
+.panel,
+.visual-card{
+backdrop-filter:blur(24px);
+transition:transform .45s ease,box-shadow .45s ease;
+}
+.portfolio-snapshot:hover,
+.value-card:hover,
+.panel:hover,
+.visual-card:hover{
+transform:translateY(-8px);
+box-shadow:var(--lux-shadow);
+}
+.focus-pill{
+gap:14px!important;
+overflow:hidden;
+}
+.lux-hidden{
+opacity:0;
+transform:translateY(30px);
+}
+.lux-visible{
+opacity:1;
+transform:none;
+transition:.8s ease;
+}
+
+/* PREMIUM ANIMATION INJECTION */
+(function(){
+const aura=document.querySelector(".cursor-aura");
+if(aura && matchMedia("(pointer:fine)").matches){
+window.addEventListener("pointermove",e=>{
+aura.style.transform=`translate3d(${e.clientX}px,${e.clientY}px,0)`;
+},{passive:true});
+}
+})();
