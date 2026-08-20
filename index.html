@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html data-theme="light" lang="en">
  <head>
@@ -76,7 +77,65 @@
       }
     }
   </style>
- </head>
+ 
+<style id="premium-luxury-enhancement">
+/* PREMIUM DESIGN ENHANCEMENT - CONTENT UNCHANGED */
+
+:root{
+  --lux-shadow:0 30px 80px rgba(15,23,42,.12);
+}
+
+.focus-pill{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  overflow:hidden;
+}
+
+.focus-pill b{
+  min-width:0;
+  overflow:hidden;
+}
+
+.focus-pill b span i{
+  white-space:nowrap;
+}
+
+.glass,
+.panel,
+.visual-card,
+.value-card,
+.portfolio-snapshot{
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease;
+}
+
+.glass:hover,
+.panel:hover,
+.visual-card:hover,
+.value-card:hover,
+.portfolio-snapshot:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lux-shadow);
+}
+
+.lux-reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.lux-reveal.active{
+  opacity:1;
+  transform:none;
+}
+</style>
+
+</head>
  <body class="v17">
   <a class="skip-link" href="#main">
    Skip to content
@@ -3096,48 +3155,34 @@
   </footer>
   <script defer="True" src="/assets/app-v17.js">
   </script>
- </body>
+ 
+<script id="premium-animation-enhancement">
+(function(){
+"use strict";
+
+document.querySelectorAll(
+".glass,.panel,.visual-card,.value-card,.portfolio-snapshot"
+).forEach(function(el){
+  el.classList.add("lux-reveal");
+});
+
+if("IntersectionObserver" in window){
+ const observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+   if(entry.isIntersecting){
+    entry.target.classList.add("active");
+    observer.unobserve(entry.target);
+   }
+  });
+ },{threshold:.12});
+
+ document.querySelectorAll(".lux-reveal")
+ .forEach(function(el){observer.observe(el);});
+}
+
+})();
+</script>
+
+</body>
 </html>
 
-
-/* PREMIUM DESIGN INJECTION */
-:root{
---lux-shadow:0 30px 80px rgba(15,23,42,.12);
-}
-.portfolio-snapshot,
-.value-card,
-.panel,
-.visual-card{
-backdrop-filter:blur(24px);
-transition:transform .45s ease,box-shadow .45s ease;
-}
-.portfolio-snapshot:hover,
-.value-card:hover,
-.panel:hover,
-.visual-card:hover{
-transform:translateY(-8px);
-box-shadow:var(--lux-shadow);
-}
-.focus-pill{
-gap:14px!important;
-overflow:hidden;
-}
-.lux-hidden{
-opacity:0;
-transform:translateY(30px);
-}
-.lux-visible{
-opacity:1;
-transform:none;
-transition:.8s ease;
-}
-
-/* PREMIUM ANIMATION INJECTION */
-(function(){
-const aura=document.querySelector(".cursor-aura");
-if(aura && matchMedia("(pointer:fine)").matches){
-window.addEventListener("pointermove",e=>{
-aura.style.transform=`translate3d(${e.clientX}px,${e.clientY}px,0)`;
-},{passive:true});
-}
-})();
