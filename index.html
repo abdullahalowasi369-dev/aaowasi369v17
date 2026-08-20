@@ -233,83 +233,49 @@ transform:translateY(0);
 
 
 
-<style id="premium-cursor-system">
-.cursor-premium{
+
+
+
+<style>
+.aa-spotlight{
 position:fixed;
-left:0;
-top:0;
-width:34px;
-height:34px;
-border-radius:50%;
+inset:0;
 pointer-events:none;
-z-index:999999;
-background:radial-gradient(circle,
-rgba(255,255,255,1) 0%,
-rgba(16,185,129,.95) 18%,
-rgba(16,185,129,.35) 45%,
-transparent 75%);
-box-shadow:
-0 0 18px rgba(16,185,129,.9),
-0 0 55px rgba(16,185,129,.55),
-0 0 110px rgba(16,185,129,.35);
-will-change:transform;
+z-index:99998;
+opacity:0;
+transition:opacity .35s ease;
+background:
+radial-gradient(
+420px circle at var(--spot-x,50%) var(--spot-y,50%),
+rgba(255,255,255,.18),
+rgba(16,185,129,.08) 25%,
+transparent 65%
+);
+mix-blend-mode:screen;
 }
 
-.cursor-premium::before{
-content:"";
-position:absolute;
-inset:-20px;
-border-radius:50%;
-background:radial-gradient(circle,
-rgba(16,185,129,.35),
-transparent 70%);
-filter:blur(12px);
-animation:cursorGlowPulse 1.8s ease-in-out infinite;
+html[data-theme="dark"] .aa-spotlight{
+background:
+radial-gradient(
+420px circle at var(--spot-x,50%) var(--spot-y,50%),
+rgba(255,255,255,.20),
+rgba(16,185,129,.12) 30%,
+transparent 70%
+);
 }
 
-.cursor-premium::after{
-content:"";
-position:absolute;
-left:50%;
-top:50%;
-width:8px;
-height:8px;
-transform:translate(-50%,-50%);
-border-radius:50%;
-background:#fff;
-box-shadow:0 0 18px #fff;
+@media (hover:hover) and (pointer:fine){
+.aa-spotlight.active{
+opacity:1;
+}
 }
 
-@keyframes cursorGlowPulse{
-0%,100%{transform:scale(1);opacity:.65}
-50%{transform:scale(1.3);opacity:1}
+@media (hover:none),(prefers-reduced-motion:reduce){
+.aa-spotlight{
+display:none;
 }
-
-.cursor-particle{
-position:fixed;
-width:8px;
-height:8px;
-border-radius:50%;
-pointer-events:none;
-background:#10b981;
-box-shadow:0 0 20px rgba(16,185,129,.9);
-animation:particleFade .8s forwards;
-}
-
-@keyframes particleFade{
-from{opacity:1;transform:scale(1)}
-to{opacity:0;transform:scale(0) translateY(20px)}
-}
-
-@media(pointer:coarse){
-.cursor-premium,.cursor-particle{display:none}
-}
-
-@media(prefers-reduced-motion:reduce){
-.cursor-premium,.cursor-particle{display:none}
 }
 </style>
-
 </head>
  <body class="v17">
   <a class="skip-link" href="#main">
@@ -3361,45 +3327,40 @@ if("IntersectionObserver" in window){
 
 
 
-<script id="premium-cursor-system-script">
+
+
+
+<script>
 (function(){
-const enabled=window.matchMedia("(pointer:fine)").matches;
+const fine=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
 const reduced=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-if(!enabled || reduced) return;
+if(!fine || reduced) return;
 
-const cursor=document.createElement("div");
-cursor.className="cursor-premium";
-document.body.appendChild(cursor);
+const light=document.createElement("div");
+light.className="aa-spotlight";
+document.body.appendChild(light);
 
-let targetX=0,targetY=0;
-let currentX=0,currentY=0;
+let x=50,y=50;
+let tx=50,ty=50;
 
 window.addEventListener("pointermove",function(e){
-targetX=e.clientX;
-targetY=e.clientY;
-
-const p=document.createElement("span");
-p.className="cursor-particle";
-p.style.left=e.clientX+"px";
-p.style.top=e.clientY+"px";
-document.body.appendChild(p);
-
-setTimeout(()=>p.remove(),800);
+tx=(e.clientX/window.innerWidth)*100;
+ty=(e.clientY/window.innerHeight)*100;
+light.classList.add("active");
 },{passive:true});
 
-function animate(){
-currentX+=(targetX-currentX)*0.14;
-currentY+=(targetY-currentY)*0.14;
+function frame(){
+x+=(tx-x)*0.12;
+y+=(ty-y)*0.12;
 
-cursor.style.transform=
-`translate3d(${currentX}px,${currentY}px,0) translate(-50%,-50%)`;
+light.style.setProperty("--spot-x",x+"%");
+light.style.setProperty("--spot-y",y+"%");
 
-requestAnimationFrame(animate);
+requestAnimationFrame(frame);
 }
 
-animate();
+frame();
 })();
 </script>
-
 </body>
 </html>
