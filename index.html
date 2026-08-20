@@ -1,3 +1,5 @@
+AAOWASI V17 FINAL PRODUCTION CLEAN INDEX.HTML CODE
+Production-clean single-file HTML deliverable. Original content preserved. Unnecessary development comments removed. Premium design and cursor enhancement code retained.
 
 <!DOCTYPE html>
 <html data-theme="light" lang="en">
@@ -18,27 +20,6 @@
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="17.0.0" name="portfolio-build"/>
   <style>
-    /* Container styling for focus pill */
-    /* =====================================================
-   FINAL FOCUS PILL FIX
-   Responsive + No Text Cut + No Indicator Overlap
-   ===================================================== */
-
-/* =====================================================
-   FINAL FOCUS PILL SYSTEM
-   REMOVE ALL OTHER FOCUS-PILL CSS
-   ===================================================== */
-
-/* =====================================================
-   FINAL FOCUS PILL - DOT OVERLAP FIX
-   ===================================================== */
-
-/* =====================================================
-   FINAL FOCUS PILL FIX
-   ONLY FIRST ICON = DOT
-   TEXT ICONS = NORMAL WORDS
-   ===================================================== */
-
 
 .focus-pill {
 
@@ -60,10 +41,6 @@
 
 }
 
-
-
-/* ONLY the first direct child is the dot */
-
 .focus-pill > i:first-child {
 
     flex:none;
@@ -81,10 +58,6 @@
 
 }
 
-
-
-
-
 .focus-pill > span {
 
     flex:none;
@@ -96,10 +69,6 @@
     letter-spacing:.12em;
 
 }
-
-
-
-
 
 .focus-pill > b {
 
@@ -113,10 +82,6 @@
 
 }
 
-
-
-
-
 .focus-pill > b > span {
 
     display:flex;
@@ -128,15 +93,6 @@
     focusRotate 12s ease-in-out infinite;
 
 }
-
-
-
-
-
-/* IMPORTANT:
-   The rotating words must NOT look like dots
-*/
-
 
 .focus-pill > b > span > i {
 
@@ -164,12 +120,7 @@
 
 }
 
-
-
-
-
 @keyframes focusRotate {
-
 
 0%,
 20% {
@@ -178,14 +129,12 @@ transform:translateY(0);
 
 }
 
-
 25%,
 45% {
 
 transform:translateY(-22px);
 
 }
-
 
 50%,
 70% {
@@ -194,7 +143,6 @@ transform:translateY(-44px);
 
 }
 
-
 75%,
 95% {
 
@@ -202,17 +150,14 @@ transform:translateY(-66px);
 
 }
 
-
 100% {
 
 transform:translateY(0);
 
 }
 
-
 }
 
-    /* Smooth step rotation sequence */
     @keyframes spinWords {
       0%, 20% {
         transform: translateY(0);
@@ -233,7 +178,6 @@ transform:translateY(0);
   </style>
  
 <style id="premium-luxury-enhancement">
-/* PREMIUM DESIGN ENHANCEMENT - CONTENT UNCHANGED */
 
 :root{
   --lux-shadow:0 30px 80px rgba(15,23,42,.12);
@@ -286,6 +230,47 @@ transform:translateY(0);
 .lux-reveal.active{
   opacity:1;
   transform:none;
+}
+</style>
+
+<style id="aaowasi-premium-cursor-enhancement">
+
+.cursor-trail-dot {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    opacity: 0;
+    transform: translate3d(-50%,-50%,0);
+    background: radial-gradient(circle,
+        rgba(16,185,129,.55) 0%,
+        rgba(16,185,129,.18) 45%,
+        transparent 75%);
+    filter: blur(2px);
+    transition: opacity .3s ease;
+    will-change: transform;
+}
+
+@media (pointer:fine) {
+    body:hover .cursor-trail-dot {
+        opacity: 1;
+    }
+}
+
+@media (max-width:768px) {
+    .cursor-trail-dot {
+        display:none;
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .cursor-trail-dot {
+        display:none;
+    }
 }
 </style>
 
@@ -376,7 +361,7 @@ transform:translateY(0);
     </a>
    </nav>
   </div>
-  <!-- V17-CUSTOMIZE HERO: executive positioning, governance snapshot, operating model -->
+  
   <header class="hero" data-section-title="Overview" id="top">
    <nav aria-label="Primary navigation" class="topline executive-nav">
     <a aria-label="AAO home" class="brand brand-premium" href="#top">
@@ -828,7 +813,7 @@ transform:translateY(0);
    </div>
   </header>
   <main id="main">
-   <!-- V17-CUSTOMIZE EXECUTIVE VALUE: risk visuals and value propositions -->
+   
    <section class="section" data-section-title="Executive Value" id="executive-value">
     <div class="section-title">
      <span>
@@ -1545,7 +1530,7 @@ transform:translateY(0);
      </article>
     </div>
    </section>
-   <!-- V17-CUSTOMIZE ARCHITECTURE: 3 no-click modules, evidence tables, AI matrix -->
+   
    <section class="section" data-section-title="Architecture" id="architecture">
     <div class="section-title">
      <span>
@@ -2311,7 +2296,7 @@ transform:translateY(0);
      </article>
     </div>
    </section>
-   <!-- V17-CUSTOMIZE SELECTED SYSTEMS: finite horizontal decision-system deck -->
+   
    <section class="section" data-section-title="Selected Systems" id="systems">
     <div class="section-title">
      <span>
@@ -2503,7 +2488,7 @@ transform:translateY(0);
      </span>
     </div>
    </section>
-   <!-- V17-CUSTOMIZE CAPABILITIES: no-click category rail + finite deck -->
+   
    <section class="section" data-section-title="Capabilities" id="capabilities">
     <div class="section-title">
      <span>
@@ -2835,7 +2820,7 @@ transform:translateY(0);
      </span>
     </div>
    </section>
-   <!-- V17-CUSTOMIZE FRAMEWORK DEPTH: finite source-linked deck -->
+   
    <section class="section" data-section-title="Framework Depth" id="frameworks">
     <div class="section-title">
      <span>
@@ -2943,7 +2928,7 @@ transform:translateY(0);
      </span>
     </div>
    </section>
-   <!-- V17-CUSTOMIZE LIVE RISK: public CISA KEV feed and governance translation -->
+   
    <section class="section live-risk-section" data-section-title="Live Risk Pulse" id="live-risk-pulse">
     <div class="section-title">
      <span>
@@ -3060,7 +3045,7 @@ transform:translateY(0);
      </div>
     </div>
    </section>
-   <!-- V17-CUSTOMIZE CONTACT: direct-conversation positioning and CTAs -->
+   
    <section class="section theme-bound-contact" data-section-title="Contact" id="contact-cta">
     <div class="contact-shell">
      <div class="contact-intro">
@@ -3164,7 +3149,7 @@ transform:translateY(0);
     </div>
    </section>
   </main>
-  <!-- V17-CUSTOMIZE FOOTER: evidence links, social channels, centered Back to top -->
+  
   <footer class="footer" data-section-title="Contact" id="contact">
    <div class="social-showcase tilt">
     <div>
@@ -3337,6 +3322,43 @@ if("IntersectionObserver" in window){
 })();
 </script>
 
+<script id="aaowasi-premium-cursor-script">
+(function(){
+"use strict";
+
+const finePointer = window.matchMedia("(pointer:fine)").matches;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+if (!finePointer || reducedMotion) return;
+
+const glow = document.createElement("div");
+glow.className = "cursor-trail-dot";
+document.body.appendChild(glow);
+
+let x = 0;
+let y = 0;
+let tx = 0;
+let ty = 0;
+
+window.addEventListener("pointermove", function(e){
+    tx = e.clientX;
+    ty = e.clientY;
+}, {passive:true});
+
+function animate(){
+    x += (tx - x) * 0.18;
+    y += (ty - y) * 0.18;
+
+    glow.style.transform =
+        "translate3d(" + x + "px," + y + "px,0)";
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+})();
+</script>
+
 </body>
 </html>
-
