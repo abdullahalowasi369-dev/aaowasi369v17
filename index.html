@@ -29,110 +29,121 @@
    REMOVE ALL OTHER FOCUS-PILL CSS
    ===================================================== */
 
+/* =====================================================
+   FINAL FOCUS PILL - DOT OVERLAP FIX
+   ===================================================== */
+
 
 .focus-pill {
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:12px;
+    gap:12px;
 
-width:330px;
+    width:360px;
 
-height:42px;
+    height:42px;
 
-padding:0 18px;
+    padding:0 18px;
 
-border-radius:999px;
+    border-radius:999px;
 
-overflow:hidden;
+    overflow:hidden;
 
-box-sizing:border-box;
+    box-sizing:border-box;
 
 }
 
+
+
+/* Green dot */
 
 .focus-pill > i {
 
-flex:0 0 auto;
+    flex:0 0 auto;
 
-width:9px;
+    width:10px;
 
-height:9px;
+    height:10px;
 
-border-radius:50%;
+    border-radius:50%;
 
-background:#10b981;
+    background:#10b981;
 
 }
 
+
+
+/* "FOCUSED ON" */
 
 .focus-pill > span {
 
-flex:0 0 auto;
+    flex:0 0 auto;
 
-white-space:nowrap;
+    white-space:nowrap;
 
-font-weight:800;
+    font-weight:800;
 
-letter-spacing:.12em;
+    letter-spacing:.14em;
 
 }
 
+
+
+/* Rotating text container */
 
 .focus-pill > b {
 
+    flex:1;
 
-flex:1 1 auto;
+    min-width:0;
 
-min-width:0;
+    height:22px;
 
-height:20px;
+    overflow:hidden;
 
-overflow:hidden;
+    display:block;
 
-display:block;
-
+    padding-left:8px;   /* THIS REMOVES DOT OVERLAP */
 
 }
 
 
+
+/* Moving words */
 
 .focus-pill > b > span {
 
+    display:flex;
 
-display:flex;
+    flex-direction:column;
 
-flex-direction:column;
-
-
-animation:
-
-focusRotate 12s linear infinite;
-
+    animation:focusRotate 12s ease-in-out infinite;
 
 }
 
 
+
+/* Each word */
 
 .focus-pill > b > span > i {
 
+    height:22px;
 
-height:20px;
+    line-height:22px;
 
-line-height:20px;
+    display:block;
 
-display:block;
+    font-style:normal;
 
-font-style:normal;
+    font-weight:800;
 
-font-weight:800;
-
-white-space:nowrap;
-
+    white-space:nowrap;
 
 }
+
 
 
 
@@ -143,7 +154,7 @@ white-space:nowrap;
 0%,
 20% {
 
-transform:translateY(0);
+    transform:translateY(0);
 
 }
 
@@ -151,7 +162,7 @@ transform:translateY(0);
 25%,
 45% {
 
-transform:translateY(-20px);
+    transform:translateY(-22px);
 
 }
 
@@ -159,7 +170,7 @@ transform:translateY(-20px);
 50%,
 70% {
 
-transform:translateY(-40px);
+    transform:translateY(-44px);
 
 }
 
@@ -167,14 +178,14 @@ transform:translateY(-40px);
 75%,
 95% {
 
-transform:translateY(-60px);
+    transform:translateY(-66px);
 
 }
 
 
 100% {
 
-transform:translateY(-80px);
+    transform:translateY(-88px);
 
 }
 
@@ -186,36 +197,20 @@ transform:translateY(-80px);
 
 @media(max-width:700px){
 
+.focus-pill{
 
-.focus-pill {
+    width:100%;
 
-width:100%;
-
-max-width:330px;
-
+    max-width:360px;
 
 }
 
 
+.focus-pill > b {
 
-.focus-pill > span {
-
-
-font-size:12px;
-
+    padding-left:6px;
 
 }
-
-
-
-.focus-pill > b > span > i {
-
-
-font-size:12px;
-
-
-}
-
 
 }
 
