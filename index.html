@@ -33,6 +33,12 @@
    FINAL FOCUS PILL - DOT OVERLAP FIX
    ===================================================== */
 
+/* =====================================================
+   FINAL FOCUS PILL FIX
+   ONLY FIRST ICON = DOT
+   TEXT ICONS = NORMAL WORDS
+   ===================================================== */
+
 
 .focus-pill {
 
@@ -52,17 +58,15 @@
 
     overflow:hidden;
 
-    box-sizing:border-box;
-
 }
 
 
 
-/* Green dot */
+/* ONLY the first direct child is the dot */
 
-.focus-pill > i {
+.focus-pill > i:first-child {
 
-    flex:0 0 auto;
+    flex:none;
 
     width:10px;
 
@@ -72,27 +76,30 @@
 
     background:#10b981;
 
+    box-shadow:
+    0 0 12px rgba(16,185,129,.7);
+
 }
 
 
 
-/* "FOCUSED ON" */
+
 
 .focus-pill > span {
 
-    flex:0 0 auto;
+    flex:none;
 
     white-space:nowrap;
 
     font-weight:800;
 
-    letter-spacing:.14em;
+    letter-spacing:.12em;
 
 }
 
 
 
-/* Rotating text container */
+
 
 .focus-pill > b {
 
@@ -104,15 +111,11 @@
 
     overflow:hidden;
 
-    display:block;
-
-    padding-left:8px;   /* THIS REMOVES DOT OVERLAP */
-
 }
 
 
 
-/* Moving words */
+
 
 .focus-pill > b > span {
 
@@ -120,27 +123,44 @@
 
     flex-direction:column;
 
-    animation:focusRotate 12s ease-in-out infinite;
+    animation:
+
+    focusRotate 12s ease-in-out infinite;
 
 }
 
 
 
-/* Each word */
+
+
+/* IMPORTANT:
+   The rotating words must NOT look like dots
+*/
+
 
 .focus-pill > b > span > i {
+
+    display:block;
+
+    width:auto;
 
     height:22px;
 
     line-height:22px;
 
-    display:block;
+    background:none;
+
+    border-radius:0;
+
+    box-shadow:none;
 
     font-style:normal;
 
     font-weight:800;
 
     white-space:nowrap;
+
+    color:#334155;
 
 }
 
@@ -154,7 +174,7 @@
 0%,
 20% {
 
-    transform:translateY(0);
+transform:translateY(0);
 
 }
 
@@ -162,7 +182,7 @@
 25%,
 45% {
 
-    transform:translateY(-22px);
+transform:translateY(-22px);
 
 }
 
@@ -170,7 +190,7 @@
 50%,
 70% {
 
-    transform:translateY(-44px);
+transform:translateY(-44px);
 
 }
 
@@ -178,39 +198,17 @@
 75%,
 95% {
 
-    transform:translateY(-66px);
+transform:translateY(-66px);
 
 }
 
 
 100% {
 
-    transform:translateY(-88px);
+transform:translateY(0);
 
 }
 
-
-}
-
-
-
-
-@media(max-width:700px){
-
-.focus-pill{
-
-    width:100%;
-
-    max-width:360px;
-
-}
-
-
-.focus-pill > b {
-
-    padding-left:6px;
-
-}
 
 }
 
