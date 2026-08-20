@@ -276,6 +276,61 @@ display:none;
 }
 }
 </style>
+
+<style id="aa-premium-spotlight">
+:root{
+ --spot-light:rgba(16,185,129,.28);
+ --spot-white:rgba(255,255,255,.22);
+}
+
+html[data-theme="dark"]{
+ --spot-light:rgba(16,185,129,.38);
+ --spot-white:rgba(255,255,255,.18);
+}
+
+.aa-cursor-spotlight{
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ z-index:99999;
+ opacity:0;
+ transition:opacity .4s ease;
+ background:
+ radial-gradient(
+  260px circle at var(--spot-x,50%) var(--spot-y,50%),
+  var(--spot-white),
+  var(--spot-light) 22%,
+  transparent 65%
+ );
+ mix-blend-mode:screen;
+ will-change:background;
+}
+
+html[data-theme="light"] .aa-cursor-spotlight{
+ mix-blend-mode:multiply;
+}
+
+.aa-glow-target{
+ transition:
+ color .35s ease,
+ text-shadow .35s ease,
+ border-color .35s ease,
+ box-shadow .35s ease;
+}
+
+@media (hover:hover) and (pointer:fine){
+ .aa-cursor-spotlight.active{
+  opacity:1;
+ }
+}
+
+@media (hover:none),(prefers-reduced-motion:reduce){
+ .aa-cursor-spotlight{
+  display:none;
+ }
+}
+</style>
+
 </head>
  <body class="v17">
   <a class="skip-link" href="#main">
@@ -3362,5 +3417,40 @@ requestAnimationFrame(frame);
 frame();
 })();
 </script>
+
+<script id="aa-premium-spotlight-script">
+(function(){
+ const supported=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+ const reduced=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+ if(!supported || reduced) return;
+
+ const layer=document.createElement("div");
+ layer.className="aa-cursor-spotlight";
+ document.body.appendChild(layer);
+
+ let x=50,y=50;
+ let tx=50,ty=50;
+
+ window.addEventListener("pointermove",function(e){
+   tx=(e.clientX/window.innerWidth)*100;
+   ty=(e.clientY/window.innerHeight)*100;
+   layer.classList.add("active");
+ },{passive:true});
+
+ function animate(){
+   x += (tx-x)*0.08;
+   y += (ty-y)*0.08;
+
+   layer.style.setProperty("--spot-x",x+"%");
+   layer.style.setProperty("--spot-y",y+"%");
+
+   requestAnimationFrame(animate);
+ }
+
+ animate();
+})();
+</script>
+
 </body>
 </html>
