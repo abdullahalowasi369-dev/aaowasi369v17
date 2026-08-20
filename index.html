@@ -24,6 +24,11 @@
    Responsive + No Text Cut + No Indicator Overlap
    ===================================================== */
 
+/* =====================================================
+   FINAL FOCUS PILL SYSTEM
+   REMOVE ALL OTHER FOCUS-PILL CSS
+   ===================================================== */
+
 
 .focus-pill {
 
@@ -33,42 +38,24 @@ align-items:center;
 
 gap:12px;
 
-width:fit-content;
+width:330px;
 
-max-width:100%;
+height:42px;
 
-padding:10px 18px;
+padding:0 18px;
 
 border-radius:999px;
 
-background:
-
-linear-gradient(
-135deg,
-rgba(255,255,255,.95),
-rgba(241,245,249,.75)
-);
-
-border:
-
-1px solid rgba(148,163,184,.35);
-
-backdrop-filter:
-
-blur(20px);
-
 overflow:hidden;
+
+box-sizing:border-box;
 
 }
 
 
-
 .focus-pill > i {
 
-
-display:block;
-
-flex:none;
+flex:0 0 auto;
 
 width:9px;
 
@@ -76,62 +63,36 @@ height:9px;
 
 border-radius:50%;
 
-
-background:
-
-#10b981;
-
-
-box-shadow:
-
-0 0 15px rgba(16,185,129,.8);
-
+background:#10b981;
 
 }
-
 
 
 .focus-pill > span {
 
-
-flex:none;
-
-
-font-weight:800;
-
-
-letter-spacing:.12em;
-
+flex:0 0 auto;
 
 white-space:nowrap;
 
+font-weight:800;
 
-color:#334155;
-
+letter-spacing:.12em;
 
 }
-
-
-
-
-
-/* IMPORTANT FIX:
-   allow rotating text to shrink
-*/
 
 
 .focus-pill > b {
 
 
-display:block;
-
-flex:1;
+flex:1 1 auto;
 
 min-width:0;
 
+height:20px;
+
 overflow:hidden;
 
-height:1.4em;
+display:block;
 
 
 }
@@ -148,7 +109,7 @@ flex-direction:column;
 
 animation:
 
-spinWords 12s ease-in-out infinite;
+focusRotate 12s linear infinite;
 
 
 }
@@ -158,25 +119,17 @@ spinWords 12s ease-in-out infinite;
 .focus-pill > b > span > i {
 
 
+height:20px;
+
+line-height:20px;
+
 display:block;
-
-
-height:1.4em;
-
-
-line-height:1.4em;
-
 
 font-style:normal;
 
-
 font-weight:800;
 
-
 white-space:nowrap;
-
-
-color:#0f172a;
 
 
 }
@@ -184,11 +137,11 @@ color:#0f172a;
 
 
 
-@keyframes spinWords {
+@keyframes focusRotate {
 
 
 0%,
-18% {
+20% {
 
 transform:translateY(0);
 
@@ -196,32 +149,32 @@ transform:translateY(0);
 
 
 25%,
-43% {
+45% {
 
-transform:translateY(-1.4em);
+transform:translateY(-20px);
 
 }
 
 
 50%,
-68% {
+70% {
 
-transform:translateY(-2.8em);
+transform:translateY(-40px);
 
 }
 
 
 75%,
-93% {
+95% {
 
-transform:translateY(-4.2em);
+transform:translateY(-60px);
 
 }
 
 
 100% {
 
-transform:translateY(0);
+transform:translateY(-80px);
 
 }
 
@@ -229,10 +182,6 @@ transform:translateY(0);
 }
 
 
-
-
-
-/* MOBILE FIX */
 
 
 @media(max-width:700px){
@@ -240,10 +189,9 @@ transform:translateY(0);
 
 .focus-pill {
 
-
 width:100%;
 
-max-width:100%;
+max-width:330px;
 
 
 }
@@ -268,30 +216,6 @@ font-size:12px;
 
 }
 
-
-}
-
-    /* Spinner viewport clipping box */
-    .focus-pill b {
-      display: inline-block;
-      height: 1.2em;
-      line-height: 1.2em;
-      overflow: hidden;
-      vertical-align: bottom;
-    }
-
-    /* Rolling text block */
-    .focus-pill b span {
-      display: flex;
-      flex-direction: column;
-      animation: spinWords 12s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
-    }
-
-    .focus-pill > b > span > i {
-
-white-space:nowrap;
-
-overflow:visible;
 
 }
 
