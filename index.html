@@ -1,6 +1,3 @@
-AAOWASI V17 FINAL PRODUCTION CLEAN INDEX.HTML CODE
-Production-clean single-file HTML deliverable. Original content preserved. Unnecessary development comments removed. Premium design and cursor enhancement code retained.
-
 <!DOCTYPE html>
 <html data-theme="light" lang="en">
  <head>
@@ -233,44 +230,83 @@ transform:translateY(0);
 }
 </style>
 
-<style id="aaowasi-premium-cursor-enhancement">
 
-.cursor-trail-dot {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99999;
-    opacity: 0;
-    transform: translate3d(-50%,-50%,0);
-    background: radial-gradient(circle,
-        rgba(16,185,129,.55) 0%,
-        rgba(16,185,129,.18) 45%,
-        transparent 75%);
-    filter: blur(2px);
-    transition: opacity .3s ease;
-    will-change: transform;
+
+
+<style id="premium-cursor-system">
+.cursor-premium{
+position:fixed;
+left:0;
+top:0;
+width:34px;
+height:34px;
+border-radius:50%;
+pointer-events:none;
+z-index:999999;
+background:radial-gradient(circle,
+rgba(255,255,255,1) 0%,
+rgba(16,185,129,.95) 18%,
+rgba(16,185,129,.35) 45%,
+transparent 75%);
+box-shadow:
+0 0 18px rgba(16,185,129,.9),
+0 0 55px rgba(16,185,129,.55),
+0 0 110px rgba(16,185,129,.35);
+will-change:transform;
 }
 
-@media (pointer:fine) {
-    body:hover .cursor-trail-dot {
-        opacity: 1;
-    }
+.cursor-premium::before{
+content:"";
+position:absolute;
+inset:-20px;
+border-radius:50%;
+background:radial-gradient(circle,
+rgba(16,185,129,.35),
+transparent 70%);
+filter:blur(12px);
+animation:cursorGlowPulse 1.8s ease-in-out infinite;
 }
 
-@media (max-width:768px) {
-    .cursor-trail-dot {
-        display:none;
-    }
+.cursor-premium::after{
+content:"";
+position:absolute;
+left:50%;
+top:50%;
+width:8px;
+height:8px;
+transform:translate(-50%,-50%);
+border-radius:50%;
+background:#fff;
+box-shadow:0 0 18px #fff;
 }
 
-@media (prefers-reduced-motion:reduce) {
-    .cursor-trail-dot {
-        display:none;
-    }
+@keyframes cursorGlowPulse{
+0%,100%{transform:scale(1);opacity:.65}
+50%{transform:scale(1.3);opacity:1}
+}
+
+.cursor-particle{
+position:fixed;
+width:8px;
+height:8px;
+border-radius:50%;
+pointer-events:none;
+background:#10b981;
+box-shadow:0 0 20px rgba(16,185,129,.9);
+animation:particleFade .8s forwards;
+}
+
+@keyframes particleFade{
+from{opacity:1;transform:scale(1)}
+to{opacity:0;transform:scale(0) translateY(20px)}
+}
+
+@media(pointer:coarse){
+.cursor-premium,.cursor-particle{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+.cursor-premium,.cursor-particle{display:none}
 }
 </style>
 
@@ -3322,41 +3358,46 @@ if("IntersectionObserver" in window){
 })();
 </script>
 
-<script id="aaowasi-premium-cursor-script">
+
+
+
+<script id="premium-cursor-system-script">
 (function(){
-"use strict";
+const enabled=window.matchMedia("(pointer:fine)").matches;
+const reduced=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(!enabled || reduced) return;
 
-const finePointer = window.matchMedia("(pointer:fine)").matches;
-const reducedMotion = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+const cursor=document.createElement("div");
+cursor.className="cursor-premium";
+document.body.appendChild(cursor);
 
-if (!finePointer || reducedMotion) return;
+let targetX=0,targetY=0;
+let currentX=0,currentY=0;
 
-const glow = document.createElement("div");
-glow.className = "cursor-trail-dot";
-document.body.appendChild(glow);
+window.addEventListener("pointermove",function(e){
+targetX=e.clientX;
+targetY=e.clientY;
 
-let x = 0;
-let y = 0;
-let tx = 0;
-let ty = 0;
+const p=document.createElement("span");
+p.className="cursor-particle";
+p.style.left=e.clientX+"px";
+p.style.top=e.clientY+"px";
+document.body.appendChild(p);
 
-window.addEventListener("pointermove", function(e){
-    tx = e.clientX;
-    ty = e.clientY;
-}, {passive:true});
+setTimeout(()=>p.remove(),800);
+},{passive:true});
 
 function animate(){
-    x += (tx - x) * 0.18;
-    y += (ty - y) * 0.18;
+currentX+=(targetX-currentX)*0.14;
+currentY+=(targetY-currentY)*0.14;
 
-    glow.style.transform =
-        "translate3d(" + x + "px," + y + "px,0)";
+cursor.style.transform=
+`translate3d(${currentX}px,${currentY}px,0) translate(-50%,-50%)`;
 
-    requestAnimationFrame(animate);
+requestAnimationFrame(animate);
 }
 
 animate();
-
 })();
 </script>
 
