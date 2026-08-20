@@ -19,18 +19,257 @@
   <meta content="17.0.0" name="portfolio-build"/>
   <style>
     /* Container styling for focus pill */
-    .focus-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      border-radius: 9999px;
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 14px;
-      color: #334155;
-    }
+    /* =====================================================
+   FINAL FOCUS PILL FIX
+   Responsive + No Text Cut + No Indicator Overlap
+   ===================================================== */
+
+
+.focus-pill {
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+width:fit-content;
+
+max-width:100%;
+
+padding:10px 18px;
+
+border-radius:999px;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(255,255,255,.95),
+rgba(241,245,249,.75)
+);
+
+border:
+
+1px solid rgba(148,163,184,.35);
+
+backdrop-filter:
+
+blur(20px);
+
+overflow:hidden;
+
+}
+
+
+
+.focus-pill > i {
+
+
+display:block;
+
+flex:none;
+
+width:9px;
+
+height:9px;
+
+border-radius:50%;
+
+
+background:
+
+#10b981;
+
+
+box-shadow:
+
+0 0 15px rgba(16,185,129,.8);
+
+
+}
+
+
+
+.focus-pill > span {
+
+
+flex:none;
+
+
+font-weight:800;
+
+
+letter-spacing:.12em;
+
+
+white-space:nowrap;
+
+
+color:#334155;
+
+
+}
+
+
+
+
+
+/* IMPORTANT FIX:
+   allow rotating text to shrink
+*/
+
+
+.focus-pill > b {
+
+
+display:block;
+
+flex:1;
+
+min-width:0;
+
+overflow:hidden;
+
+height:1.4em;
+
+
+}
+
+
+
+.focus-pill > b > span {
+
+
+display:flex;
+
+flex-direction:column;
+
+
+animation:
+
+spinWords 12s ease-in-out infinite;
+
+
+}
+
+
+
+.focus-pill > b > span > i {
+
+
+display:block;
+
+
+height:1.4em;
+
+
+line-height:1.4em;
+
+
+font-style:normal;
+
+
+font-weight:800;
+
+
+white-space:nowrap;
+
+
+color:#0f172a;
+
+
+}
+
+
+
+
+@keyframes spinWords {
+
+
+0%,
+18% {
+
+transform:translateY(0);
+
+}
+
+
+25%,
+43% {
+
+transform:translateY(-1.4em);
+
+}
+
+
+50%,
+68% {
+
+transform:translateY(-2.8em);
+
+}
+
+
+75%,
+93% {
+
+transform:translateY(-4.2em);
+
+}
+
+
+100% {
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+/* MOBILE FIX */
+
+
+@media(max-width:700px){
+
+
+.focus-pill {
+
+
+width:100%;
+
+max-width:100%;
+
+
+}
+
+
+
+.focus-pill > span {
+
+
+font-size:12px;
+
+
+}
+
+
+
+.focus-pill > b > span > i {
+
+
+font-size:12px;
+
+
+}
+
+
+}
 
     /* Spinner viewport clipping box */
     .focus-pill b {
@@ -48,15 +287,13 @@
       animation: spinWords 12s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
     }
 
-    /* Individual word item styling */
-    .focus-pill b span i {
-      height: 1.2em;
-      line-height: 1.2em;
-      font-style: normal;
-      font-weight: 700;
-      color: #0f172a;
-      white-space: nowrap;
-    }
+    .focus-pill > b > span > i {
+
+white-space:nowrap;
+
+overflow:visible;
+
+}
 
     /* Smooth step rotation sequence */
     @keyframes spinWords {
