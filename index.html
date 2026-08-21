@@ -1,5 +1,4 @@
-AAOWASI V19 ULTIMATE FOCUS PILL LIGHT + DARK FINAL
-Applied the requested first and second screenshot style: premium thin pill, not the third screenshot style. Supports both light and dark themes. Content unchanged; visual layer only.
+
 <!DOCTYPE html>
 
 <html data-theme="light" lang="en">
@@ -498,65 +497,101 @@ html[data-theme="light"] .aa-ultimate-light{mix-blend-mode:multiply}
 </style>
 
 
-<style id="ultimate-focus-pill-v19">
+
+
+
+<style id="aaowasi-focus-pill-v2">
+:root{
+ --focus-bg-light:rgba(236,253,245,.78);
+ --focus-border-light:rgba(16,185,129,.28);
+ --focus-text-light:#475569;
+ --focus-accent:#10b981;
+
+ --focus-bg-dark:rgba(16,185,129,.10);
+ --focus-border-dark:rgba(16,185,129,.32);
+ --focus-text-dark:#cbd5e1;
+}
+
 .focus-pill{
-  position:relative;
-  width:360px;
-  min-height:42px;
-  padding:0 18px;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  overflow:hidden;
-  border:1px solid rgba(16,185,129,.45);
-  background:rgba(16,185,129,.08);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+ display:flex;
+ align-items:center;
+ gap:12px;
+ width:350px;
+ min-height:40px;
+ padding:0 16px;
+ border-radius:999px;
+ overflow:hidden;
+ border:1px solid var(--focus-border-light);
+ background:var(--focus-bg-light);
+ backdrop-filter:blur(14px);
+ -webkit-backdrop-filter:blur(14px);
+ box-shadow:
+   inset 0 1px 0 rgba(255,255,255,.45),
+   0 10px 30px rgba(16,185,129,.08);
+ transition:
+   border-color .25s ease,
+   background .25s ease,
+   box-shadow .25s ease;
 }
 
 .focus-pill > i:first-child{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  flex:none;
-  background:#10b981;
-  box-shadow:0 0 14px rgba(16,185,129,.75);
+ width:10px;
+ height:10px;
+ flex:none;
+ border-radius:50%;
+ background:var(--focus-accent);
+ box-shadow:0 0 10px rgba(16,185,129,.55);
 }
 
 .focus-pill > span{
-  white-space:nowrap;
-  text-transform:uppercase;
-  font-weight:800;
-  letter-spacing:.12em;
-  color:#94a3b8;
+ flex:none;
+ white-space:nowrap;
+ color:var(--focus-text-light);
+ text-transform:uppercase;
+ font-weight:800;
+ letter-spacing:.12em;
+ font-size:13px;
+}
+
+.focus-pill > b{
+ flex:1;
+ min-width:0;
+ overflow:hidden;
+}
+
+.focus-pill > b > span{
+ display:block;
 }
 
 .focus-pill > b > span > i{
-  color:#10b981;
+ color:var(--focus-accent);
+ font-style:normal;
+ font-weight:800;
+ white-space:nowrap;
+ font-size:13px;
 }
 
 html[data-theme="dark"] .focus-pill{
-  background:rgba(16,185,129,.12);
-  border-color:rgba(16,185,129,.35);
+ background:var(--focus-bg-dark);
+ border-color:var(--focus-border-dark);
+ box-shadow:
+   inset 0 1px 0 rgba(255,255,255,.08),
+   0 10px 35px rgba(16,185,129,.10);
 }
 
 html[data-theme="dark"] .focus-pill > span{
-  color:#cbd5e1;
-}
-
-html[data-theme="light"] .focus-pill{
-  background:rgba(236,253,245,.82);
-  border-color:rgba(16,185,129,.28);
-}
-
-html[data-theme="light"] .focus-pill > span{
-  color:#475569;
+ color:var(--focus-text-dark);
 }
 
 @media(max-width:600px){
  .focus-pill{
-   width:min(360px,90vw);
+   width:min(350px,90vw);
+ }
+}
+
+@media (prefers-reduced-motion:reduce){
+ .focus-pill{
+   transition:none;
  }
 }
 </style>
@@ -6762,3 +6797,72 @@ raf=0;
 </body>
 
 </html>
+
+
+
+
+
+.focus-pill{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:350px;
+  height:40px;
+  padding:0 18px;
+  border-radius:999px;
+  border:1px solid rgba(16,185,129,.35);
+  background:rgba(16,185,129,.10);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 12px 35px rgba(16,185,129,.08);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.focus-pill > i:first-child{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#10b981;
+  box-shadow:0 0 12px rgba(16,185,129,.8);
+}
+
+.focus-pill > span{
+  color:#94a3b8;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.focus-pill > b > span > i{
+  color:#10b981;
+  font-style:normal;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+
+html[data-theme="dark"] .focus-pill{
+  background:rgba(16,185,129,.12);
+  border-color:rgba(16,185,129,.30);
+}
+
+html[data-theme="dark"] .focus-pill > span{
+  color:#cbd5e1;
+}
+
+html[data-theme="light"] .focus-pill{
+  background:rgba(236,253,245,.70);
+  border-color:rgba(16,185,129,.28);
+}
+
+html[data-theme="light"] .focus-pill > span{
+  color:#475569;
+}
+
+/* remove previous oversized luxury pill effects */
+.focus-pill::before,
+.focus-pill::after{
+  display:none!important;
+}
