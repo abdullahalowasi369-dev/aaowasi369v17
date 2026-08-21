@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 
 <html data-theme="light" lang="en">
@@ -69,91 +70,78 @@
 
 
 
-<style id="aaowasi-v5-premium-clean">
+<style id="aaowasi-final-focus-clean">
 .focus-pill{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  width:350px;
-  height:40px;
-  padding:0 18px;
-  border-radius:999px;
-  border:1px solid rgba(16,185,129,.28);
-  background:rgba(236,253,245,.72);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  box-shadow:0 10px 30px rgba(16,185,129,.06);
-  overflow:hidden;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ width:350px;
+ height:40px;
+ padding:0 18px;
+ border-radius:999px;
+ overflow:hidden;
+ border:1px solid rgba(16,185,129,.30);
+ background:rgba(236,253,245,.75);
+ backdrop-filter:blur(14px);
+ -webkit-backdrop-filter:blur(14px);
+ box-shadow:0 8px 24px rgba(16,185,129,.05);
 }
 
 .focus-pill > i:first-child{
-  width:12px;
-  height:12px;
-  flex:none;
-  border-radius:50%;
-  background:#10b981;
-  box-shadow:0 0 10px rgba(16,185,129,.35);
+ width:12px;
+ height:12px;
+ flex:none;
+ border-radius:50%;
+ background:#10b981;
+ box-shadow:0 0 8px rgba(16,185,129,.35);
 }
 
 .focus-pill > span{
-  color:#475569;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  white-space:nowrap;
+ flex:none;
+ color:#475569;
+ font-size:13px;
+ font-weight:800;
+ letter-spacing:.12em;
+ text-transform:uppercase;
 }
 
 .focus-pill > b{
-  overflow:hidden;
-  min-width:0;
+ flex:1;
+ height:18px;
+ min-width:0;
+ overflow:hidden;
+ position:relative;
+ display:block;
+}
+
+.focus-pill > b > span{
+ display:flex;
+ flex-direction:column;
+ will-change:transform;
 }
 
 .focus-pill > b > span > i{
-  color:#10b981;
-  font-style:normal;
-  font-size:13px;
-  font-weight:800;
-  white-space:nowrap;
+ display:block;
+ height:18px;
+ line-height:18px;
+ color:#10b981;
+ font-style:normal;
+ font-size:13px;
+ font-weight:800;
+ white-space:nowrap;
 }
 
 html[data-theme="dark"] .focus-pill{
-  background:rgba(6,78,59,.28);
-  border-color:rgba(16,185,129,.35);
+ background:rgba(6,78,59,.22);
+ border-color:rgba(16,185,129,.35);
 }
 
 html[data-theme="dark"] .focus-pill > span{
-  color:#cbd5e1;
+ color:#cbd5e1;
 }
 
 html[data-theme="dark"] .focus-pill > b > span > i{
-  color:#34d399;
-}
-
-.aa-v5-spotlight{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:99999;
-  opacity:0;
-  background:radial-gradient(
-    130px circle at var(--x,50%) var(--y,50%),
-    rgba(16,185,129,.10),
-    transparent 70%
-  );
-  transition:opacity .12s ease;
-}
-
-@media (hover:hover) and (pointer:fine){
-  .aa-v5-spotlight.active{
-    opacity:1;
-  }
-}
-
-@media (hover:none),(prefers-reduced-motion:reduce){
-  .aa-v5-spotlight{
-    display:none;
-  }
+ color:#34d399;
 }
 </style>
 
@@ -6385,36 +6373,6 @@ raf=0;
   };
 
   render();
-})();
-</script>
-
-
-<script id="aaowasi-v5-spotlight">
-(()=>{
- const fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
- const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
- if(!fine||reduce)return;
-
- const el=document.createElement("div");
- el.className="aa-v5-spotlight";
- document.body.appendChild(el);
-
- let x=50,y=50,tx=50,ty=50;
-
- addEventListener("pointermove",e=>{
-   tx=e.clientX/innerWidth*100;
-   ty=e.clientY/innerHeight*100;
-   el.classList.add("active");
- },{passive:true});
-
- function frame(){
-   x+=(tx-x)*0.55;
-   y+=(ty-y)*0.55;
-   el.style.setProperty("--x",x+"%");
-   el.style.setProperty("--y",y+"%");
-   requestAnimationFrame(frame);
- }
- frame();
 })();
 </script>
 
