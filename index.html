@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html data-theme="light" lang="en">
@@ -70,7 +69,10 @@
 
 
 
-<style id="aaowasi-final-focus-clean">
+
+
+
+<style id="aaowasi-final-corrected-motion">
 .focus-pill{
  display:flex;
  align-items:center;
@@ -81,10 +83,10 @@
  border-radius:999px;
  overflow:hidden;
  border:1px solid rgba(16,185,129,.30);
- background:rgba(236,253,245,.75);
+ background:rgba(236,253,245,.72);
  backdrop-filter:blur(14px);
  -webkit-backdrop-filter:blur(14px);
- box-shadow:0 8px 24px rgba(16,185,129,.05);
+ box-shadow:0 8px 25px rgba(16,185,129,.06);
 }
 
 .focus-pill > i:first-child{
@@ -93,7 +95,7 @@
  flex:none;
  border-radius:50%;
  background:#10b981;
- box-shadow:0 0 8px rgba(16,185,129,.35);
+ box-shadow:0 0 12px rgba(16,185,129,.35);
 }
 
 .focus-pill > span{
@@ -107,16 +109,16 @@
 
 .focus-pill > b{
  flex:1;
- height:18px;
  min-width:0;
+ height:18px;
  overflow:hidden;
- position:relative;
  display:block;
+ position:relative;
 }
 
 .focus-pill > b > span{
- display:flex;
- flex-direction:column;
+ display:block;
+ animation:aaFocusRotate 8s cubic-bezier(.4,0,.2,1) infinite;
  will-change:transform;
 }
 
@@ -131,9 +133,17 @@
  white-space:nowrap;
 }
 
+@keyframes aaFocusRotate{
+ 0%,18%{transform:translateY(0)}
+ 25%,43%{transform:translateY(-18px)}
+ 50%,68%{transform:translateY(-36px)}
+ 75%,93%{transform:translateY(-54px)}
+ 100%{transform:translateY(-72px)}
+}
+
 html[data-theme="dark"] .focus-pill{
- background:rgba(6,78,59,.22);
- border-color:rgba(16,185,129,.35);
+ background:rgba(6,78,59,.24);
+ border-color:rgba(16,185,129,.38);
 }
 
 html[data-theme="dark"] .focus-pill > span{
@@ -142,6 +152,27 @@ html[data-theme="dark"] .focus-pill > span{
 
 html[data-theme="dark"] .focus-pill > b > span > i{
  color:#34d399;
+}
+
+/* subtle cursor spotlight, not a large glow */
+.cursor-aura{
+ width:220px!important;
+ height:220px!important;
+ opacity:0!important;
+ transition:opacity .15s ease;
+ pointer-events:none!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+ body:hover .cursor-aura{
+   opacity:1!important;
+ }
+}
+
+@media (hover:none),(prefers-reduced-motion:reduce){
+ .cursor-aura{
+   display:none!important;
+ }
 }
 </style>
 
