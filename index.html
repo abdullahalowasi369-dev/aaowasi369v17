@@ -35,564 +35,143 @@
 
   <meta content="17.0.0" name="portfolio-build"/>
 
-  <style>
-
-
-.focus-pill {
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    gap:12px;
-
-
-    width:360px;
-
-
-    height:42px;
-
-
-    padding:0 18px;
-
-
-    border-radius:999px;
-
-
-    overflow:hidden;
-
-
-}
-
-
-.focus-pill > i:first-child {
-
-
-    flex:none;
-
-
-    width:10px;
-
-
-    height:10px;
-
-
-    border-radius:50%;
-
-
-    background:#10b981;
-
-
-    box-shadow:
-
-    0 0 12px rgba(16,185,129,.7);
-
-
-}
-
-
-.focus-pill > span {
-
-
-    flex:none;
-
-
-    white-space:nowrap;
-
-
-    font-weight:800;
-
-
-    letter-spacing:.12em;
-
-
-}
-
-
-.focus-pill > b {
-
-
-    flex:1;
-
-
-    min-width:0;
-
-
-    height:22px;
-
-
-    overflow:hidden;
-
-
-}
-
-
-.focus-pill > b > span {
-
-
-    display:flex;
-
-
-    flex-direction:column;
-
-
-    animation:
-
-
-    focusRotate 12s ease-in-out infinite;
-
-
-}
-
-
-.focus-pill > b > span > i {
-
-
-    display:block;
-
-
-    width:auto;
-
-
-    height:22px;
-
-
-    line-height:22px;
-
-
-    background:none;
-
-
-    border-radius:0;
-
-
-    box-shadow:none;
-
-
-    font-style:normal;
-
-
-    font-weight:800;
-
-
-    white-space:nowrap;
-
-
-    color:#334155;
-
-
-}
-
-
-@keyframes focusRotate {
-
-
-0%,
-
-20% {
-
-
-transform:translateY(0);
-
-
-}
-
-
-25%,
-
-45% {
-
-
-transform:translateY(-22px);
-
-
-}
-
-
-50%,
-
-70% {
-
-
-transform:translateY(-44px);
-
-
-}
-
-
-75%,
-
-95% {
-
-
-transform:translateY(-66px);
-
-
-}
-
-
-100% {
-
-
-transform:translateY(0);
-
-
-}
-
-
-}
-
-
-    @keyframes spinWords {
-
-      0%, 20% {
-
-        transform: translateY(0);
-
-      }
-
-      25%, 45% {
-
-        transform: translateY(-1.2em);
-
-      }
-
-      50%, 70% {
-
-        transform: translateY(-2.4em);
-
-      }
-
-      75%, 95% {
-
-        transform: translateY(-3.6em);
-
-      }
-
-      100% {
-
-        transform: translateY(-4.8em);
-
-      }
-
-    }
-
-  </style>
+  
 
  
 
-<style id="premium-luxury-enhancement">
 
 
-:root{
 
-  --lux-shadow:0 30px 80px rgba(15,23,42,.12);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="aaowasi-v4-final-design">
+/* Final single focus pill system */
+.focus-pill {
+  align-items: center;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(16,185,129,.10);
+  border: 1px solid rgba(16,185,129,.32);
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(16,185,129,.08);
+  display: flex;
+  gap: 12px;
+  height: 40px;
+  overflow: hidden;
+  padding: 0 16px;
+  width: 350px;
 }
 
-
-.focus-pill{
-
-  position:relative;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:12px;
-
-  overflow:hidden;
-
+.focus-pill > i:first-child {
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(16,185,129,.65);
+  flex: none;
+  height: 10px;
+  width: 10px;
 }
 
-
-.focus-pill b{
-
-  min-width:0;
-
-  overflow:hidden;
-
+.focus-pill > span {
+  color: #94a3b8;
+  flex: none;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
-
-.focus-pill b span i{
-
-  white-space:nowrap;
-
+.focus-pill > b {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
 }
 
-
-.glass,
-
-.panel,
-
-.visual-card,
-
-.value-card,
-
-.portfolio-snapshot{
-
-  transition:
-
-    transform .45s cubic-bezier(.2,.8,.2,1),
-
-    box-shadow .45s ease;
-
+.focus-pill > b > span {
+  display: block;
 }
 
-
-.glass:hover,
-
-.panel:hover,
-
-.visual-card:hover,
-
-.value-card:hover,
-
-.portfolio-snapshot:hover{
-
-  transform:translateY(-6px);
-
-  box-shadow:var(--lux-shadow);
-
+.focus-pill > b > span > i {
+  color: #10b981;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
-
-.lux-reveal{
-
-  opacity:0;
-
-  transform:translateY(24px);
-
-  transition:
-
-    opacity .8s ease,
-
-    transform .8s ease;
-
+html[data-theme="light"] .focus-pill {
+  background: rgba(236,253,245,.78);
+  border-color: rgba(16,185,129,.28);
 }
 
-
-.lux-reveal.active{
-
-  opacity:1;
-
-  transform:none;
-
+html[data-theme="light"] .focus-pill > span {
+  color: #475569;
 }
 
-</style>
-
-
-
-
-
-
-
-
-<style>
-
-.aa-spotlight{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-z-index:99998;
-
-opacity:0;
-
-transition:opacity .35s ease;
-
-background:
-
-radial-gradient(
-
-420px circle at var(--spot-x,50%) var(--spot-y,50%),
-
-rgba(255,255,255,.18),
-
-rgba(16,185,129,.08) 25%,
-
-transparent 65%
-
-);
-
-mix-blend-mode:screen;
-
+html[data-theme="dark"] .focus-pill {
+  background: rgba(16,185,129,.12);
+  border-color: rgba(16,185,129,.35);
 }
 
-
-html[data-theme="dark"] .aa-spotlight{
-
-background:
-
-radial-gradient(
-
-420px circle at var(--spot-x,50%) var(--spot-y,50%),
-
-rgba(255,255,255,.20),
-
-rgba(16,185,129,.12) 30%,
-
-transparent 70%
-
-);
-
+html[data-theme="dark"] .focus-pill > span {
+  color: #cbd5e1;
 }
 
-
-@media (hover:hover) and (pointer:fine){
-
-.aa-spotlight.active{
-
-opacity:1;
-
+/* Final single cursor spotlight system */
+.aa-v4-spotlight {
+  background:
+    radial-gradient(
+      180px circle at var(--x,50%) var(--y,50%),
+      rgba(255,255,255,.16),
+      rgba(16,185,129,.08) 35%,
+      transparent 70%
+    );
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity .15s ease;
+  z-index: 99999;
+  will-change: background;
 }
 
+@media (hover:hover) and (pointer:fine) {
+  .aa-v4-spotlight.active {
+    opacity: 1;
+  }
 }
 
-
-@media (hover:none),(prefers-reduced-motion:reduce){
-
-.aa-spotlight{
-
-display:none;
-
+@media (hover:none), (prefers-reduced-motion:reduce) {
+  .aa-v4-spotlight {
+    display: none;
+  }
 }
 
-}
-
-</style>
-
-
-
-
-
-<style id="ultimate-smooth-cursor-light">
-
-.aa-ultimate-light{
-
-position:fixed;inset:0;pointer-events:none;z-index:99999;opacity:0;
-
-background:radial-gradient(circle 210px at var(--x,50%) var(--y,50%),
-
-rgba(255,255,255,.13),rgba(16,185,129,.06) 25%,transparent 65%);
-
-mix-blend-mode:screen;will-change:background;transition:opacity .18s ease;
-
-}
-
-html[data-theme="light"] .aa-ultimate-light{mix-blend-mode:multiply}
-
-@media (hover:hover) and (pointer:fine){.aa-ultimate-light.active{opacity:1}}
-
-@media (hover:none),(prefers-reduced-motion:reduce){.aa-ultimate-light{display:none}}
-
-</style>
-
-
-
-
-
-<style id="aaowasi-focus-pill-v2">
-:root{
- --focus-bg-light:rgba(236,253,245,.78);
- --focus-border-light:rgba(16,185,129,.28);
- --focus-text-light:#475569;
- --focus-accent:#10b981;
-
- --focus-bg-dark:rgba(16,185,129,.10);
- --focus-border-dark:rgba(16,185,129,.32);
- --focus-text-dark:#cbd5e1;
-}
-
-.focus-pill{
- display:flex;
- align-items:center;
- gap:12px;
- width:350px;
- min-height:40px;
- padding:0 16px;
- border-radius:999px;
- overflow:hidden;
- border:1px solid var(--focus-border-light);
- background:var(--focus-bg-light);
- backdrop-filter:blur(14px);
- -webkit-backdrop-filter:blur(14px);
- box-shadow:
-   inset 0 1px 0 rgba(255,255,255,.45),
-   0 10px 30px rgba(16,185,129,.08);
- transition:
-   border-color .25s ease,
-   background .25s ease,
-   box-shadow .25s ease;
-}
-
-.focus-pill > i:first-child{
- width:10px;
- height:10px;
- flex:none;
- border-radius:50%;
- background:var(--focus-accent);
- box-shadow:0 0 10px rgba(16,185,129,.55);
-}
-
-.focus-pill > span{
- flex:none;
- white-space:nowrap;
- color:var(--focus-text-light);
- text-transform:uppercase;
- font-weight:800;
- letter-spacing:.12em;
- font-size:13px;
-}
-
-.focus-pill > b{
- flex:1;
- min-width:0;
- overflow:hidden;
-}
-
-.focus-pill > b > span{
- display:block;
-}
-
-.focus-pill > b > span > i{
- color:var(--focus-accent);
- font-style:normal;
- font-weight:800;
- white-space:nowrap;
- font-size:13px;
-}
-
-html[data-theme="dark"] .focus-pill{
- background:var(--focus-bg-dark);
- border-color:var(--focus-border-dark);
- box-shadow:
-   inset 0 1px 0 rgba(255,255,255,.08),
-   0 10px 35px rgba(16,185,129,.10);
-}
-
-html[data-theme="dark"] .focus-pill > span{
- color:var(--focus-text-dark);
-}
-
-@media(max-width:600px){
- .focus-pill{
-   width:min(350px,90vw);
- }
-}
-
-@media (prefers-reduced-motion:reduce){
- .focus-pill{
-   transition:none;
- }
+@media (max-width:600px) {
+  .focus-pill {
+    width: min(350px,90vw);
+  }
 }
 </style>
 
@@ -6794,75 +6373,39 @@ raf=0;
 
 </script>
 
+
+<script id="aaowasi-v4-spotlight-script">
+(() => {
+  if (!matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  if (matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+
+  const light = document.createElement("div");
+  light.className = "aa-v4-spotlight";
+  document.body.appendChild(light);
+
+  let x = 50;
+  let y = 50;
+  let targetX = 50;
+  let targetY = 50;
+
+  addEventListener("pointermove", event => {
+    targetX = event.clientX / innerWidth * 100;
+    targetY = event.clientY / innerHeight * 100;
+    light.classList.add("active");
+  }, { passive: true });
+
+  const render = () => {
+    x += (targetX - x) * .45;
+    y += (targetY - y) * .45;
+    light.style.setProperty("--x", `${x}%`);
+    light.style.setProperty("--y", `${y}%`);
+    requestAnimationFrame(render);
+  };
+
+  render();
+})();
+</script>
+
 </body>
 
 </html>
-
-
-
-
-
-.focus-pill{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  width:350px;
-  height:40px;
-  padding:0 18px;
-  border-radius:999px;
-  border:1px solid rgba(16,185,129,.35);
-  background:rgba(16,185,129,.10);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.10),
-    0 12px 35px rgba(16,185,129,.08);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-}
-
-.focus-pill > i:first-child{
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:#10b981;
-  box-shadow:0 0 12px rgba(16,185,129,.8);
-}
-
-.focus-pill > span{
-  color:#94a3b8;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.focus-pill > b > span > i{
-  color:#10b981;
-  font-style:normal;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.08em;
-}
-
-html[data-theme="dark"] .focus-pill{
-  background:rgba(16,185,129,.12);
-  border-color:rgba(16,185,129,.30);
-}
-
-html[data-theme="dark"] .focus-pill > span{
-  color:#cbd5e1;
-}
-
-html[data-theme="light"] .focus-pill{
-  background:rgba(236,253,245,.70);
-  border-color:rgba(16,185,129,.28);
-}
-
-html[data-theme="light"] .focus-pill > span{
-  color:#475569;
-}
-
-/* remove previous oversized luxury pill effects */
-.focus-pill::before,
-.focus-pill::after{
-  display:none!important;
-}
